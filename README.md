@@ -1,72 +1,53 @@
-# Advertising Funnel Analysis
+# 📊 Advertising Funnel Analysis
 
-**End-to-end data analytics project** — database design, ETL, SQL analysis, Power BI dashboards, and a written insights report.
-
----
-
-## The problem
-
-A digital marketing agency runs paid campaigns across Facebook and Instagram. Users move through a funnel:  
-**Impression → Click → Engagement → Purchase**
-
-The business question: *where does the funnel break, and how do we fix it?*
+> Identifying conversion bottlenecks and actionable growth levers across a paid social media campaign dataset of 300,000+ ad events.
 
 ---
 
-## Key findings
+## Problem Statement
 
-- **18.53% overall conversion rate** (impression to purchase)
-- **77.91% drop-off** at Engagement → Purchase — the critical bottleneck
-- Facebook converts ~50% better than Instagram
-- Stories ads outperform all formats at 6.6% vs 3.4% for video
-- 35–54 age group + Technology/Gaming interests = highest-converting audience
-- Thursday mornings are the best time slot for conversion-focused ads
-- Average time to purchase: **43 days** — campaigns need long retargeting windows
-- Engaged users (likes/comments/shares) barely outconvert non-engaged users (18.60% vs 18.20%)
+A digital marketing agency running paid campaigns on Facebook and Instagram needed to understand **where users drop off** in the conversion funnel — and why. With budgets spread across platforms, ad formats, and audience segments, the key question was: *what's actually driving purchases, and what's wasting spend?*
+
+---
+## Approach
+
+Built a star-schema relational database in MySQL from a synthetic dataset of 10,000+ events, then answered 14 analytical questions covering the full user journey (Impression → Click → Engagement → Purchase). Results were visualized in Power BI across four thematic dashboards.
+
+**Tools & Techniques**
+`MySQL` · `Power BI` · `Python (Pandas, NumPy)` · `CTEs` · `Window Functions` · `Star Schema`
 
 ---
 
-## Project structure
+## Key Findings
+| Area | Finding |
+|---|---|
+| 🔻 Critical bottleneck | 77.9% of engaged users never purchase |
+| 📱 Best platform | Facebook converts at ~10.5% vs Instagram's ~7% |
+| 🎯 Best ad format | Stories (6.6%) outperform Video (3.4%) by nearly 2x |
+| 👥 Highest-value audience | Ages 35–54 + Technology/Gaming interests (~20% conversion) |
+| 📅 Best timing | Thursday mornings (13.1% conversion) |
+| ⏱ Purchase window | 43-day average — short campaigns miss most converters |
+
+---
+## Business Recommendations
+
+1. **Launch retargeting** for users who engaged but didn't purchase — this single lever targets the 77.9% drop-off
+2. **Reallocate budget toward Facebook** — ~50% higher conversion ROI
+3. **Shift video spend to Stories format** — +3.2pp conversion lift, lower production cost
+4. **Set 45–90 day retargeting windows** to align with the actual purchase journey
+
+---
+
+## Project Structure
 
 ```
-advertising-funnel-analysis/
-│
-├── dashboards/
-│   └── funnel_dashboard.pbix
-│
-├── data/
-│   ├── raw/
-│   └── cleaned/
-│
-├── etl/
-│   └── etl_pipeline.py
-│
-├── sql/
-│   └── analysis_queries.sql
-│
-├── report/
-│   └── insights_report.pdf
-│
-├── use_case/
-│   └── use_case.md
-│
-└── README.md
+├── data/           synthetic dataset generation (Python)
+├── sql/            14 analytical queries with CTEs
+├── powerbi/        .pbix dashboard file
+└── report/         full insights report (PDF)
 ```
 
-
-
 ---
-
-## Why this project
-
-I wanted to build something that mirrors what a data analyst actually does in a business — not just explore a dataset, but model a process, ask real business questions, and turn query results into decisions.
-
-Funnel analysis was chosen because every insight directly impacts revenue and marketing performance.
-
----
-
-## Skills demonstrated
-
-`MySQL` `Star Schema Design` `CTEs` `Window Functions` `ETL` `Power BI` `Data Analysis` `Data Storytelling`
+*Dataset is synthetic, generated with Faker + NumPy to simulate realistic campaign behavior without personal data.*
 
 
