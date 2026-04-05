@@ -41,9 +41,13 @@ Built a star-schema relational database in MySQL from a synthetic dataset of 10,
 ## Project Structure
 
 ```
-├── data/           synthetic dataset generation (Python)
+├── use_case/       project brief and business context
+├── data/
+│   ├── raw/        original uncleaned dataset
+│   └── cleaned/    processed data ready for analysis
+├── etl/            data cleaning and transformation scripts (Python)
 ├── sql/            14 analytical queries with CTEs
-├── powerbi/        .pbix dashboard file
+├── dashboards/     both Power BI (.pbix) file and (PDF)
 └── report/         full insights report (PDF)
 ```
 
